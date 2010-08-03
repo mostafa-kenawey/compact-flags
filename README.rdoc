@@ -1,0 +1,38 @@
+= Introduction 
+
+CompactFlags comes to serve models with several boolean flags. in large data volumes where the flags can be used to slice the data in several ways. queries tend to be heavier and more indexes are needed by time.
+
+this plugin is made so it can store several flags in one integer attribute through bit wise operations. the attribute represents the state of each record. And is much more performant in database queries
+
+= Installation
+
+  ruby script/plugin install http://github.com/modsaid/compact-flags.git
+
+or just checkout/download the plugin to vendor/plugins
+
+= Usage
+
+The generators are yet to be developed, currently you need to add an integer column only to your model. which will be used later as the flags store
+
+== Usage example
+
+After adding the plugin and creating an integer column, for example: "roles" & "status", to your model, add the "compact_flags" lines passing the flags store column name, and the array of flags
+
+  class User < ActiveRecord::Base
+    compact_flags :roles  => [:admin, :moderator, :editor ]
+    compact_flags :status => [:active, :draft, :pruned ]
+  end
+
+  # the corresponding getters and setters for all the boolean flags has been created
+  u=User.new
+  u.admin=true
+  u.admin?     # <=  will return true
+  u.moderator? # <=  will return false
+  u.active = false  # <= set the value of active to false
+  u.save
+
+
+= Author
+
+Author: Mahmoud Said (mahmoud@modsaid.com)
+Copyright (c) 2009 modsaid.com , released under the MIT license
