@@ -32,7 +32,8 @@ After adding the plugin and creating an integer column, for example: "roles" & "
   u.save
 
 
-= Author
+= Contributions
 
-Author: Mahmoud Said (mahmoud@modsaid.com)
-Copyright (c) 2009 modsaid.com , released under the MIT license
+* Mahmoud Said aka modsaid (mahmoud@modsaid.com)
+* Mostafa Ragab aka dr-click
+
