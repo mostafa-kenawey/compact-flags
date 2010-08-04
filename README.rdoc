@@ -13,6 +13,20 @@ or just checkout/download the plugin to vendor/plugins
 = Usage
 
 The generators are yet to be developed, currently you need to add an integer column only to your model. which will be used later as the flags store
+currently you can just use a migration that adds inter column like below:
+
+  class AddRoles < ActiveRecord::Migration
+    def self.up
+      add_column :users, :roles, :integer, :null=>false, :default=>0
+      add_column :users, :status, :integer, :null=>false, :default=>0
+    end
+    def self.down
+      remove_column :users, :roles
+      remove_column :users, :status
+    end
+  end
+
+
 
 == Usage example
 
