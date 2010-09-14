@@ -44,6 +44,14 @@ module CompactFlags
         define_method "#{key}_value" do
           return value
         end
+        
+        define_method "where_#{key}" do
+          return "(#{@@names[key]} & #{@@flags[key]}) > 0"
+        end
+
+        define_method "where_not_#{key}" do
+          return "(#{@@names[key]} & #{@@flags[key]}) = 0"
+        end
       end
     end
   
