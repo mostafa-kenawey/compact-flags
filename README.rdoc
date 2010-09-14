@@ -53,6 +53,14 @@ Named scopes gives a suitable flexibility because they can be used in a cascaded
   User.admins
   User.not_moderators
   User.not_moderators.editors.admins
+  
+Other methods are also available to return the relevant condition part as a string, for concatenation with a condition string. those comes with the in the form of _where_ and _where_not_
+
+
+  User.where_admin         # => "(roles & 1) > 0"
+  User.where_not_admin     # => "(roles & 1) = 0"
+  User.where_not_moderator # => "(roles & 2) = 0"
+
 
 = Contributions
 

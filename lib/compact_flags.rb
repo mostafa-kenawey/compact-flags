@@ -46,11 +46,11 @@ module CompactFlags
         end
         
         define_method "where_#{key}" do
-          return "(#{@@names[key]} & #{@@flags[key]}) > 0"
+          return "(#{@@store_columns[key]} & #{@@flags[key]}) > 0"
         end
 
         define_method "where_not_#{key}" do
-          return "(#{@@names[key]} & #{@@flags[key]}) = 0"
+          return "(#{@@store_columns[key]} & #{@@flags[key]}) = 0"
         end
       end
     end
