@@ -14,17 +14,28 @@ This Gem is made so it can store several flags in one integer attribute through 
   gem 'compact_flags'
 
   ```
+  Then run bundle to install the Gem:
+  ```sh
+  bundle install
+  ```
+
 
 ## Database Migrations
 
 You need to add an integer column only to your model. which will be used later as the flags store, you can just use a migration that adds inter column like below:
 
+  ```ruby
   class AddRoles < ActiveRecord::Migration
     def change
       add_column :users, :roles, :integer, :null=>false, :default=>0
     end
   end
+  ```
 
+  Now run migrations:
+  ```sh
+  bundle exec rake db:migrate
+  ```
 
 ## Usage example
 
