@@ -4,18 +4,18 @@ CompactFlags comes to serve models with several boolean flags. in large data vol
 
 This Gem is made so it can store several flags in one integer attribute through bit wise operations. the attribute represents the state of each record. And is much more performant in database queries
 
-= Compatible
+## Compatible
 
   Compatible with Rails 4 and 5
 
-= Installation
+## Installation
 
   ```ruby
   gem 'compact_flags'
 
   ```
 
-= Database Migrations
+## Database Migrations
 
 You need to add an integer column only to your model. which will be used later as the flags store, you can just use a migration that adds inter column like below:
 
@@ -26,7 +26,7 @@ You need to add an integer column only to your model. which will be used later a
   end
 
 
-== Usage example
+## Usage example
 
 After adding the gem and creating an integer column, for example: "roles" to your model, add the "compact_flags" lines passing the flags store column name, and the array of flags
 
@@ -64,7 +64,7 @@ Other methods are also available to return the relevant condition part as a stri
   User.where_not_moderator      # => "(roles & 2) = 0"
   ```
 
-= Contributions
+## Contributions
 
 * Mahmoud Said aka modsaid (mahmoud@modsaid.com)
 * Mostafa Ragab aka dr-click (ragab.mostafa@gmail.com)
