@@ -1,4 +1,4 @@
-= Introduction
+## Introduction
 
 CompactFlags comes to serve models with several boolean flags. in large data volumes where the flags can be used to slice the data in several ways. queries tend to be heavier and more indexes are needed by time.
 
