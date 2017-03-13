@@ -1,5 +1,8 @@
 ## Introduction
 
+Ruby Gem to store many boolean flags in an integer column by utilizing bits Edit
+Add topics
+
 CompactFlags comes to serve models with several boolean flags. in large data volumes where the flags can be used to slice the data in several ways. queries tend to be heavier and more indexes are needed by time.
 
 This Gem is made so it can store several flags in one integer attribute through bit wise operations. the attribute represents the state of each record. And is much more performant in database queries
