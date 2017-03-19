@@ -68,7 +68,7 @@ scopes gives a suitable flexibility because they can be used in a cascaded style
   User.not_moderators.admins
   ```
 
-Other methods are also available to return the relevant condition part as a string, for concatenation with a condition string. those comes with the in the form of _where_ and _where_not_
+Other methods are also available to return the relevant condition part as a string, for concatenation with a condition string. those comes with the in the form of _where_ and _where_not_, Also available methods to send "OR" in the where clause
 
   ```ruby
   User.admin_value              # => returns associated value to admin => 1
@@ -76,6 +76,15 @@ Other methods are also available to return the relevant condition part as a stri
   User.where_admin              # => "(roles & 1) > 0"
   User.where_not_admin          # => "(roles & 1) = 0"
   User.where_not_moderator      # => "(roles & 2) = 0"
+  ```
+
+  ```ruby
+  User.roles_or([:admin, :editor])                  # => returns SELECT "users".* FROM "users" WHERE (((roles & 1) > 0) or ((roles & 4) > 0))
+  User.roles_or([:admin, :editor], "users.roles")   # => returns SELECT "users".* FROM "users" WHERE (((users.roles & 1) > 0) or ((users.roles & 4) > 0))
+  ```
+
+  ```ruby
+  User.roles_values             # => returns ["Admin", "Editor"]
   ```
 
 ## Contributions
